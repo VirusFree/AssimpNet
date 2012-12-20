@@ -1,0 +1,4 @@
+AssimpNet
+=========
+
+AssimpNet wrapper for 
