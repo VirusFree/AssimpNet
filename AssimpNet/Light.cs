@@ -43,6 +43,7 @@ namespace Assimp
         private float m_attConstant;
         private float m_attLinear;
         private float m_attQuadratic;
+        private float m_intensity;
         private Vector3D m_position;
         private Vector3D m_direction;
         private Color3D m_diffuse;
@@ -163,6 +164,22 @@ namespace Assimp
                 m_attQuadratic = value;
             }
         }
+        
+        /// <summary>
+        /// Gets or sets then intensity of the light source. The intensity is multiplied with the
+	    /// material colors to obtain the final color that contributes to the shading term.
+        /// </summary>
+        public float Intensity
+        {
+            get
+            {
+                return m_intensity;
+            }
+            set
+            {
+                m_intensity = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the position of the light source in space, relative to the
@@ -277,6 +294,7 @@ namespace Assimp
             nativeValue.AttenuationConstant = m_attConstant;
             nativeValue.AttenuationLinear = m_attLinear;
             nativeValue.AttenuationQuadratic = m_attQuadratic;
+            nativeValue.Intensity = m_intensity;
             nativeValue.ColorAmbient = m_ambient;
             nativeValue.ColorDiffuse = m_diffuse;
             nativeValue.ColorSpecular = m_specular;
@@ -297,6 +315,7 @@ namespace Assimp
             m_attConstant = nativeValue.AttenuationConstant;
             m_attLinear = nativeValue.AttenuationLinear;
             m_attQuadratic = nativeValue.AttenuationQuadratic;
+            m_intensity = nativeValue.Intensity;
             m_position = nativeValue.Position;
             m_direction = nativeValue.Direction;
             m_diffuse = nativeValue.ColorDiffuse;

@@ -633,6 +633,11 @@ namespace Assimp.Unmanaged
         public float AttenuationQuadratic;
 
         /// <summary>
+        /// Intensity of the light source.
+        /// </summary>
+        public float Intensity;
+
+        /// <summary>
         /// Diffuse color.
         /// </summary>
         public Color3D ColorDiffuse;
