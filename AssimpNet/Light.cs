@@ -39,6 +39,7 @@ namespace Assimp
         private String m_name;
         private LightSourceType m_lightType;
         private bool m_castshadows;
+        private float m_range;
         private float m_angleInnerCone;
         private float m_angleOuterCone;
         private float m_attConstant;
@@ -94,6 +95,22 @@ namespace Assimp
             set
             {
                 m_castshadows = value;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets light's range.
+        /// The range of light, beyond that distance light has zero intensity.
+        /// </summary>
+        public float Range
+        {
+            get
+            {
+                return m_range;
+            }
+            set
+            {
+                m_range = value;
             }
         }
 
@@ -307,6 +324,7 @@ namespace Assimp
             nativeValue.Name = new AiString(m_name);
             nativeValue.Type = m_lightType;
             nativeValue.CastShadows = m_castshadows ? 1 : 0;
+            nativeValue.Range = m_range;
             nativeValue.AngleInnerCone = m_angleInnerCone;
             nativeValue.AngleOuterCone = m_angleOuterCone;
             nativeValue.AttenuationConstant = m_attConstant;
@@ -329,6 +347,7 @@ namespace Assimp
             m_name = nativeValue.Name.GetString();
             m_lightType = nativeValue.Type;
             m_castshadows = nativeValue.CastShadows != 0;
+            m_range = nativeValue.Range;
             m_angleInnerCone = nativeValue.AngleInnerCone;
             m_angleOuterCone = nativeValue.AngleOuterCone;
             m_attConstant = nativeValue.AttenuationConstant;

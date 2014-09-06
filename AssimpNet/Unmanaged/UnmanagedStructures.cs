@@ -621,6 +621,11 @@ namespace Assimp.Unmanaged
         /// Light shadow casting
         /// <summary>
         public int CastShadows;
+        
+        /// <summary>
+        /// Light range
+        /// <summary>
+        public float Range;
 
         /// <summary>
         /// Attenuation constant value.
