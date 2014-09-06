@@ -38,6 +38,7 @@ namespace Assimp
     {
         private String m_name;
         private LightSourceType m_lightType;
+        private bool m_castshadows;
         private float m_angleInnerCone;
         private float m_angleOuterCone;
         private float m_attConstant;
@@ -77,6 +78,22 @@ namespace Assimp
             set
             {
                 m_lightType = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the shadow casting value for the light.
+        /// If true the this light should cast shadows.
+        /// </summary>
+        public bool CastShadows
+        {
+            get
+            {
+                return m_castshadows;
+            }
+            set
+            {
+                m_castshadows = value;
             }
         }
 
@@ -289,6 +306,7 @@ namespace Assimp
         {
             nativeValue.Name = new AiString(m_name);
             nativeValue.Type = m_lightType;
+            nativeValue.CastShadows = m_castshadows ? 1 : 0;
             nativeValue.AngleInnerCone = m_angleInnerCone;
             nativeValue.AngleOuterCone = m_angleOuterCone;
             nativeValue.AttenuationConstant = m_attConstant;
@@ -310,6 +328,7 @@ namespace Assimp
         {
             m_name = nativeValue.Name.GetString();
             m_lightType = nativeValue.Type;
+            m_castshadows = nativeValue.CastShadows != 0;
             m_angleInnerCone = nativeValue.AngleInnerCone;
             m_angleOuterCone = nativeValue.AngleOuterCone;
             m_attConstant = nativeValue.AttenuationConstant;

@@ -618,6 +618,11 @@ namespace Assimp.Unmanaged
         public Vector3D Direction;
 
         /// <summary>
+        /// Light shadow casting
+        /// <summary>
+        public int CastShadows;
+
+        /// <summary>
         /// Attenuation constant value.
         /// </summary>
         public float AttenuationConstant;
