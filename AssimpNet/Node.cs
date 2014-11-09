@@ -77,6 +77,10 @@ namespace Assimp
             {
                 return m_parent;
             }
+            set
+            {
+                m_parent = value;
+            }
         }
 
         /// <summary>
