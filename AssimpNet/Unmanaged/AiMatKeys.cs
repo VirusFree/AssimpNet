@@ -214,6 +214,11 @@ namespace Assimp.Unmanaged
         public const String GLOBAL_BACKGROUND_IMAGE = "?bg.global,0,0";
 
         /// <summary>
+        /// Meta Properties base key
+        /// </summary>
+        public const String METAPROPERTY = "$meta.";
+
+        /// <summary>
         /// Texture base name
         /// </summary>
         public const String TEXTURE_BASE = "$tex.file";

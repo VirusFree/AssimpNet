@@ -1006,6 +1006,22 @@ namespace Assimp
         }
 
         /// <summary>
+        /// Gets the material meta properties contained in this Material.
+        /// </summary>
+        public IEnumerable<KeyValuePair<string,MaterialProperty>> MetaProperties
+        {
+            get
+            {
+                foreach (var keyval in m_properties)
+                    if (keyval.Key.StartsWith(AiMatKeys.METAPROPERTY))
+                    {
+                        var newkeyval = new KeyValuePair<string, MaterialProperty>(keyval.Key.Substring(AiMatKeys.METAPROPERTY.Length), keyval.Value);
+                        yield return newkeyval;
+                    }
+            }
+        }
+
+        /// <summary>
         /// Gets the material property. All the input parameters are combined into the fully qualified name: {baseName},{texType},{texIndex}. E.g.
         /// "$clr.diffuse,0,0" or "$tex.file,1,0".
         /// </summary>
